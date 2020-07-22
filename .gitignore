@@ -1,6 +1,7 @@
 # tmpfile
 
 tmp/
+.log
 
 # ide
 
