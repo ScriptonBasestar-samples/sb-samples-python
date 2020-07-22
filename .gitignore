@@ -7,3 +7,9 @@ tmp/
 
 .idea/
 *.iml
+
+# devenv
+
+.venv/
+venv/
+
