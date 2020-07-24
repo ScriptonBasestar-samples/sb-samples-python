@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "133d0a738aada53fb9d26390174fa14e06d6b7c2a1b2160a496e47d55bf26cb7"
+            "sha256": "0b235d167f2b4db4b3fa37bd0dc89298aeac27079d5dc98df0c5229a39dae96a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -22,12 +22,6 @@
                 "sha256:aaa5ac584f40fe778013df0aa6544bf157799bd3f608364b451840ed2c8688de"
             ],
             "version": "==2.0.0"
-        },
-        "aioeventlet": {
-            "hashes": [
-                "sha256:cecb51ea220209e33b53cfb95124d90e4fcbee3ff8ba8a179a57120b8624b16a"
-            ],
-            "version": "==0.5.2"
         },
         "aiohttp": {
             "hashes": [
@@ -228,6 +222,7 @@
                 "sha256:044af09374469c3a39eeea1a146e8cac27daec951f1f1f157b1962fc7cb9d1b7",
                 "sha256:40bb3c24b9d4ec12500f0124288a65df232a3aa749bb0c39734b782873a2544d"
             ],
+            "markers": "python_version >= '3.6'",
             "version": "==2.0.0"
         },
         "eventlet": {
@@ -235,11 +230,11 @@
                 "sha256:4c8ab42c51bff55204fef43cff32616558bedbc7538d876bb6a96ce820c7f9ed",
                 "sha256:955f2cf538829bfcb7b3aa885ace40e8ae5965dcd5b876c384d0c5869702db1d"
             ],
+            "index": "pypi",
             "version": "==0.25.2"
         },
         "faust": {
             "extras": [
-                "eventlet",
                 "fast",
                 "redis",
                 "rocksdb",
@@ -474,6 +469,15 @@
                 "sha256:f3eb0eb92e3833972ac36796293ca0906e998dc3be91fbe1f8615b331b853b81"
             ],
             "version": "==3.1.0"
+        },
+        "typing-extensions": {
+            "hashes": [
+                "sha256:6e95524d8a547a91e08f404ae485bbb71962de46967e1b71a0cb89af24e761c5",
+                "sha256:79ee589a3caca649a9bfd2a8de4709837400dfa00b6cc81962a1e6a1815969ae",
+                "sha256:f8d2bd89d25bc39dabe7d23df520442fa1d8969b82544370e03d88b5a591c392"
+            ],
+            "markers": "python_version < '3.8'",
+            "version": "==3.7.4.2"
         },
         "uvloop": {
             "hashes": [
