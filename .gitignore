@@ -14,3 +14,7 @@ tmp/
 venv/
 .env
 
+# buildfile
+
+__pycache___
+*.pyc
