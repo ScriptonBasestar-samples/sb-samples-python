@@ -16,7 +16,7 @@ docker run --rm -p 6379:6379 -e REDIS_PASSWORD=str0ng_passw0rd -d bitnami/redis:
 
 Running rabbitmq
 ```bash
-docker run --rm -p 5672:5672 -d rabbitmq:3
+docker run --rm -p 5672:5672 -e RABBITMQ_DEFAULT_VHOST=vhost_broker -d rabbitmq:3
 ```
 
 ### App
