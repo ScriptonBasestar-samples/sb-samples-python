@@ -13,7 +13,7 @@ services:
     networks:
       - app-tier
     ports:
-      - '6379'
+      - '6379:6379'
 
   redis-slave:
     image: 'bitnami/redis:latest'

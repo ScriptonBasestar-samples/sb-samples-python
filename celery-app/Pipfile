@@ -7,6 +7,7 @@ verify_ssl = true
 
 [packages]
 celery = {extras = ["redis"], version = "*"}
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"
