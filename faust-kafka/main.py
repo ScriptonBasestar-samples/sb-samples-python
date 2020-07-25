@@ -1,7 +1,12 @@
 import asyncio
 import faust
 
-app = faust.App('myapp', broker='kafka://localhost', store='memory://')
+app = faust.App(
+    'myapp',
+    broker='kafka://localhost:9092',
+    store='memory://',
+    value_serializer='raw',
+)
 
 
 # Models describe how messages are serialized:
@@ -11,8 +16,12 @@ class Order(faust.Record):
     amount: int
 
 
+greetings_topic = app.topic('greetings')
+
+
+# @app.agent(channel=greetings_topic, value_type=Order)
 @app.agent(value_type=Order)
-async def order(orders):
+async def order(orders) -> None:
     async for order in orders:
         # process infinite stream of orders.
         print(f'Order for {order.account_id}: {order.amount}')
@@ -43,5 +52,7 @@ def manage_loop():
 
 if __name__ == '__main__':
     # app.main()
+    worker = faust.Worker(app)
+    worker.execute_from_commandline()
     # manage_loop()
-    start_worker()
+    # start_worker()
