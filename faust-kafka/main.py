@@ -19,9 +19,14 @@ class Order(faust.Record):
 greetings_topic = app.topic('greetings')
 
 
+<<<<<<< HEAD
 # @app.agent(channel=greetings_topic, value_type=Order)
 @app.agent(value_type=Order)
 async def order(orders) -> None:
+=======
+@app.agent(channel=greetings_topic, value_type=Order)
+async def order(orders):
+>>>>>>> 2d115f3... faust
     async for order in orders:
         # process infinite stream of orders.
         print(f'Order for {order.account_id}: {order.amount}')

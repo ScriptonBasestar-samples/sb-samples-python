@@ -37,7 +37,11 @@ docker run --rm -d -p 9093:9093 kafka
 
 ### App
 
+코드 직접 실행은 안된다\
+celery처럼. 파라미터를 미리 정의해서 전달하면 되긴되는데\
+좀 쨔증나게 실행시켜야함
 ```bash
+faust main worker -l info
 ```
 
 ## REF
