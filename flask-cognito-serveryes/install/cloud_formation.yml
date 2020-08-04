@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Cognito Stack
+
+Parameters:
+  Domain:
+    Type: String
+    Description: Unique Name for Cognito Resources
+  SignInCallback:
+    Type: String
+    Description: Full URL to be called after used is signed in
+
+Resources:
+  UserPool:
+    Type: "AWS::Cognito::UserPool"
+    Properties:
+      UserPoolName: !Join ['-', [!Ref Domain, 'user-pool']]
+      AutoVerifiedAttributes:
+        - email
+      Schema:
+        - Name: email
+          AttributeDataType: String
+          Mutable: false
+          Required: true
+
+  PoolClientUser:
+    Type: AWS::Cognito::UserPoolClient
+    Description: Pool client to be used by users
+    Properties:
+      ClientName: !Join ['-', [!Ref Domain, 'cognito-user-pool-client']]
+      UserPoolId: !Ref UserPool
+      AllowedOAuthFlows:
+        - code
+      CallbackURLs:
+        - !Ref SignInCallback
+      AllowedOAuthFlowsUserPoolClient: true
+      AllowedOAuthScopes:
+        - email
+        - openid
+      SupportedIdentityProviders:
+        - COGNITO

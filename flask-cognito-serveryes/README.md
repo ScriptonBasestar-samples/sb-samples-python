@@ -5,6 +5,16 @@ Flask Cognito ServerYES
 
 ### Cognito
 
+JWT support
+* https://github.com/jetbridge/flask_cognito
+  * https://github.com/borisrozumnuk/cognitojwt
+
+
+* https://github.com/cgauge/Flask-AWSCognito
+* https://flask-awscognito.readthedocs.io/en/latest/installation.html
+
+* https://github.com/mcrowson/flask-cognito
+
 ```text
 LoginID
   Email assress - only
@@ -18,17 +28,33 @@ EMIAL verify..
 
 ## Usage
 
-### Login
+### Endpoint
 
+Signin <https://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/login-endpoint.html>
 ```bash
-https://bo-user-dev.auth.ap-northeast-2.amazoncognito.com/login?client_id=2dc5j9593dmed6kkt8cmom3rr4&response_type=code&scope=email+openid+phone&redirect_uri=http://localhost/auth/redirect
+GET https://bo-user-dev.auth.ap-northeast-2.amazoncognito.com/login?client_id=2dc5j9593dmed6kkt8cmom3rr4&response_type=code&scope=email+openid+phone&redirect_uri=http://localhost/auth/redirect
 ```
 
-### Logout
-
+Signout <https://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/logout-endpoint.html>
 ```bash
-https://bo-user-dev.auth.ap-northeast-2.amazoncognito.com/logout?response_type=code&client_id=2dc5j9593dmed6kkt8cmom3rr4&logout_uri=http://localhost/auth/signout
+GET https://bo-user-dev.auth.ap-northeast-2.amazoncognito.com/logout?client_id=2boue2dcmn06s20spnjh0og3g&response_type=code&scope=email+openid+phone&redirect_uri=http://localhost:5000/auth/redirect
+GET https://bo-user-dev.auth.ap-northeast-2.amazoncognito.com/logout?client_id=2boue2dcmn06s20spnjh0og3g&logout_uri=http://localhost:5000/auth/signout
 ```
+
+UserInfo <https://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/userinfo-endpoint.html>
+```bash
+GET https://<your-user-pool-domain>/oauth2/userInfo
+Authorization: Bearer <access_token>
+```
+
+Signup
+```bash
+GET/POST https://bo-user-dev.auth.ap-northeast-2.amazoncognito.com/signup?client_id=2boue2dcmn06s20spnjh0og3g&response_type=code&scope=email+openid+phone&redirect_uri=http://localhost:5000/auth/redirect
+```
+
+Token <https://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/token-endpoint.html>
+
+Authorize <https://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/authorization-endpoint.html>
 
 ### OAuth2
 
@@ -54,3 +80,5 @@ https://cognito-idp.ap-northeast-2.amazonaws.com/ap-northeast-2_49M4XHccl
 
 * https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html
 * https://flask-awscognito.readthedocs.io/en/latest/index.html
+* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js
+* https://pyjwt.readthedocs.io/en/latest/usage.html
