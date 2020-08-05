@@ -87,5 +87,6 @@ https://cognito-idp.ap-northeast-2.amazonaws.com/ap-northeast-2_49M4XHccl
 
 * https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html
 * https://flask-awscognito.readthedocs.io/en/latest/index.html
-* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js
+* https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js
 * https://pyjwt.readthedocs.io/en/latest/usage.html
+* khttps://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUsers.html

@@ -5,9 +5,9 @@ from flask_awscognito import AWSCognitoAuthentication
 from jose import jwt
 from werkzeug.utils import redirect
 
-from config.cognito import cogauth
+from config.cognito import cogauth_customer
 from models.users import User
-from config import db, app, aws_auth
+from config import db, app
 
 import routes.auth
 import routes.home
@@ -15,7 +15,7 @@ import routes.home
 db.create_all()
 
 
-@cogauth.identity_handler
+@cogauth_customer.identity_handler
 def lookup_cognito_user(payload):
     """Look up user in our database from Cognito JWT payload."""
     return User.query.filter(User.username == payload['username']).one_or_none()

@@ -11,20 +11,20 @@ load_dotenv(os.path.join(basedir, '../.env'), verbose=True)
 
 
 class Config:
-    AWS_DEFAULT_REGION = os.getenv('AWS_DEFAULT_REGION', 'ap-northeast-2')
-    AWS_COGNITO_DOMAIN = os.getenv('AWS_COGNITO_DOMAIN', 'domain.com')
-    AWS_COGNITO_USER_POOL_ID = os.getenv('AWS_COGNITO_USER_POOL_ID', '')
-    AWS_COGNITO_USER_POOL_CLIENT_ID = os.getenv('AWS_COGNITO_USER_POOL_CLIENT_ID', '')
-    AWS_COGNITO_USER_POOL_CLIENT_SECRET = os.getenv('AWS_COGNITO_USER_POOL_CLIENT_SECRET', '')
-    AWS_COGNITO_REDIRECT_URL = os.getenv('AWS_COGNITO_REDIRECT_URL', 'http://localhost:5000/auth/redirect')
+    AWS_DEFAULT_REGION = os.getenv('CUSTOMER_AWS_DEFAULT_REGION', 'ap-northeast-2')
+    AWS_COGNITO_DOMAIN = os.getenv('CUSTOMER_AWS_COGNITO_DOMAIN', 'domain.com')
+    AWS_COGNITO_USER_POOL_ID = os.getenv('CUSTOMER_AWS_COGNITO_USER_POOL_ID', '')
+    AWS_COGNITO_USER_POOL_CLIENT_ID = os.getenv('CUSTOMER_AWS_COGNITO_USER_POOL_CLIENT_ID', '')
+    AWS_COGNITO_USER_POOL_CLIENT_SECRET = os.getenv('CUSTOMER_AWS_COGNITO_USER_POOL_CLIENT_SECRET', '')
+    AWS_COGNITO_REDIRECT_URL = os.getenv('CUSTOMER_AWS_COGNITO_REDIRECT_URL', 'http://localhost:5000/auth/redirect')
 
-    COGNITO_REGION = os.getenv('COGNITO_REGION', 'ap-northeast-2')
-    COGNITO_USERPOOL_ID = os.getenv('COGNITO_USERPOOL_ID', '')
+    COGNITO_REGION = os.getenv('CUSTOMER_COGNITO_REGION', 'ap-northeast-2')
+    COGNITO_USERPOOL_ID = os.getenv('CUSTOMER_COGNITO_USERPOOL_ID', '')
 
-    COGNITO_APP_CLIENT_ID = os.getenv('COGNITO_APP_CLIENT_ID', '')
-    COGNITO_CHECK_TOKEN_EXPIRATION = os.getenv('COGNITO_CHECK_TOKEN_EXPIRATION', False)
-    COGNITO_JWT_HEADER_NAME = os.getenv('COGNITO_JWT_HEADER_NAME', 'X-MyApp-Authorization')
-    COGNITO_JWT_HEADER_PREFIX = os.getenv('COGNITO_JWT_HEADER_PREFIX', 'Bearer')
+    COGNITO_APP_CLIENT_ID = os.getenv('CUSTOMER_COGNITO_APP_CLIENT_ID', '')
+    COGNITO_CHECK_TOKEN_EXPIRATION = os.getenv('CUSTOMER_COGNITO_CHECK_TOKEN_EXPIRATION', False)
+    COGNITO_JWT_HEADER_NAME = os.getenv('CUSTOMER_COGNITO_JWT_HEADER_NAME', 'X-MyApp-Authorization')
+    COGNITO_JWT_HEADER_PREFIX = os.getenv('CUSTOMER_COGNITO_JWT_HEADER_PREFIX', 'Bearer')
 
 
 # class ProdConfig(Config):
@@ -39,7 +39,9 @@ class Config:
 
 
 app.config.from_object('config.cognito.Config')
-# aws_auth = AWSCognitoAuthentication(app)
-aws_auth = AWSCognitoAuthentication(app)
+awsauth_customer = AWSCognitoAuthentication(app)
+cogauth_customer = CognitoAuth(app)
 
-cogauth = CognitoAuth(app)
+app.config.from_object('config.cognito.Config')
+awsauth_manager = AWSCognitoAuthentication(app)
+cogauth_manager = CognitoAuth(app)

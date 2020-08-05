@@ -1,7 +1,7 @@
-from flask_cognito import cognito_auth_required, current_user, current_cognito_jwt, cognito_check_groups
+# from flask_cognito import cognito_auth_required, current_user, current_cognito_jwt, cognito_check_groups
 from flask import _request_ctx_stack, current_app, jsonify, request, render_template
 
-from config import app, aws_auth
+from config import app, cogauth_customer, awsauth_customer
 
 
 @app.route('/')
@@ -10,8 +10,8 @@ def home():
 
 
 @app.route('/test-jwtuser')
-@cognito_auth_required
-@cognito_check_groups(['admin', 'developer'])
+@cogauth_customer.cognito_auth_required
+@cogauth_customer.cognito_check_groups(['admin', 'developer'])
 def api_private():
     # user must belongs to "admin" or "developer" groups
     return jsonify({
@@ -20,7 +20,7 @@ def api_private():
 
 
 @app.route('/test-awsauth')
-@aws_auth.authentication_required
+@awsauth_customer.authentication_required
 def index():
-    claims = aws_auth.claims
+    claims = awsauth_customer.claims
     return jsonify({'claims': claims})

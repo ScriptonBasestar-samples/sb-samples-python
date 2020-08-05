@@ -1,12 +1,12 @@
 from flask_cognito import cognito_auth_required, current_user, current_cognito_jwt, cognito_check_groups
 from flask import _request_ctx_stack, current_app, jsonify, request, render_template, redirect
 
-from config import app, aws_auth
+from config import app, awsauth_customer
 
 
 @app.route('/auth/signin', methods=['GET'])
 def signin():
-    return redirect(aws_auth.get_sign_in_url())
+    return redirect(awsauth_customer.get_sign_in_url())
 
 
 @app.route('/auth/signup', methods=['POST'])
@@ -21,11 +21,11 @@ def signout():
 
 @app.route('/auth/jwtpubkeys', methods=['GET'])
 def jwt_pubkeys():
-    print(aws_auth.token_service._load_jwk_keys())
-    return jsonify({'succes': aws_auth.token_service._load_jwk_keys()})
+    print(awsauth_customer.token_service._load_jwk_keys())
+    return jsonify({'succes': awsauth_customer.token_service._load_jwk_keys()})
 
 
 @app.route('/auth/redirect', methods=['GET'])
 def aws_cognito_redirect():
-    access_token = aws_auth.get_access_token(request.args)
+    access_token = awsauth_customer.get_access_token(request.args)
     return render_template('redirect.html', access_token=access_token)
