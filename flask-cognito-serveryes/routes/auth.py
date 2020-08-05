@@ -4,6 +4,7 @@ from flask import _request_ctx_stack, current_app, jsonify, request, render_temp
 from config import app, awsauth_customer
 
 
+
 @app.route('/auth/signin', methods=['GET'])
 def signin():
     return redirect(awsauth_customer.get_sign_in_url())
@@ -11,6 +12,31 @@ def signin():
 
 @app.route('/auth/signup', methods=['POST'])
 def signup():
+    response = cognito_client.admin_create_user(
+        UserPoolId='string',
+        Username='string',
+        UserAttributes=[
+            {
+                'Name': 'string',
+                'Value': 'string'
+            },
+        ],
+        ValidationData=[
+            {
+                'Name': 'string',
+                'Value': 'string'
+            },
+        ],
+        TemporaryPassword='string',
+        ForceAliasCreation=True|False,
+        MessageAction='RESEND'|'SUPPRESS',
+        DesiredDeliveryMediums=[
+            'SMS'|'EMAIL',
+        ],
+        ClientMetadata={
+            'string': 'string'
+        }
+    )
     return jsonify({'success': 'signout'})
 
 

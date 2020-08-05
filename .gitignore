@@ -8,6 +8,7 @@ tmp/
 
 .idea/
 *.iml
+.vscode/
 
 # devenv
 
@@ -19,3 +20,4 @@ venv/
 
 __pycache___
 *.pyc
+
