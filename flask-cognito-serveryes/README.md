@@ -89,4 +89,5 @@ https://cognito-idp.ap-northeast-2.amazonaws.com/ap-northeast-2_49M4XHccl
 * https://flask-awscognito.readthedocs.io/en/latest/index.html
 * https://stackoverflow.com/questions/48983708/where-to-store-access-token-in-react-js
 * https://pyjwt.readthedocs.io/en/latest/usage.html
-* khttps://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUsers.html
+* https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUsers.html
+* https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html?highlight=cognito#CognitoIdentityProvider.Client.admin_create_user
