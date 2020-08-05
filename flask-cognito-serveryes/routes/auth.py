@@ -19,14 +19,13 @@ def signout():
     return jsonify({'success': 'signout'})
 
 
-@app.route('/auth/jwt', methods=['GET'])
-def jwt_issue():
+@app.route('/auth/jwtpubkeys', methods=['GET'])
+def jwt_pubkeys():
     print(aws_auth.token_service._load_jwk_keys())
-    jwt
-    return jsonify({'succes': 'jwt'})
+    return jsonify({'succes': aws_auth.token_service._load_jwk_keys()})
 
 
 @app.route('/auth/redirect', methods=['GET'])
 def aws_cognito_redirect():
     access_token = aws_auth.get_access_token(request.args)
-    return jsonify({'access_token': access_token})
+    return render_template('redirect.html', access_token=access_token)

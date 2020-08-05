@@ -40,6 +40,6 @@ class Config:
 
 app.config.from_object('config.cognito.Config')
 # aws_auth = AWSCognitoAuthentication(app)
-aws_auth = AWSCognitoAuthentication(app, _token_service_factory=TokenService, _cognito_service_factory=CognitoService)
+aws_auth = AWSCognitoAuthentication(app)
 
 cogauth = CognitoAuth(app)

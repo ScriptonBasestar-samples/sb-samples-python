@@ -2,6 +2,7 @@
 
 tmp/
 .log
+*.db
 
 # ide
 

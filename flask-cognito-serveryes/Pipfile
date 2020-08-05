@@ -11,7 +11,7 @@ flask-cognito = "*"
 flask-api = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
-flask-awscognito = "*"
+sb_flask_awscognito = {editable = true, git = "https://github.com/ScriptonBasestar-io/sb-Flask-AWSCognito.git"}
 
 [requires]
 python_version = "3.7"

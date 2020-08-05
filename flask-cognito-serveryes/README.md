@@ -1,6 +1,13 @@
 Flask Cognito ServerYES
 =============
 
+하다보니까... 이거 필요한건가? 라는 의문이 들었지만...\
+완료는 해놔야지
+
+
+
+cognito
+
 ## Install
 
 ### Cognito

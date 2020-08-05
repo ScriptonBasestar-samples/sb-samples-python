@@ -12,11 +12,13 @@ from config import db, app, aws_auth
 import routes.auth
 import routes.home
 
+db.create_all()
+
 
 @cogauth.identity_handler
 def lookup_cognito_user(payload):
     """Look up user in our database from Cognito JWT payload."""
-    return User.query.filter(User.cognito_username == payload['username']).one_or_none()
+    return User.query.filter(User.username == payload['username']).one_or_none()
 
 
 def token_required(f):
