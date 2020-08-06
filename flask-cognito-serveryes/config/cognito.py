@@ -37,7 +37,7 @@ class Config:
 #     DEBUG = True
 #     TESTING = True
 
-
+# flask app config를 사용하기 때문에 이 순서가중요.
 app.config.from_object('config.cognito.Config')
 awsauth_customer = AWSCognitoAuthentication(app)
 cogauth_customer = CognitoAuth(app)
