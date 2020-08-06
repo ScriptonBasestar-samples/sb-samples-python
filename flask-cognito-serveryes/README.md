@@ -4,9 +4,10 @@ Flask Cognito ServerYES
 하다보니까... 이거 필요한건가? 라는 의문이 들었지만...\
 완료는 해놔야지
 
+## TODO
 
+로그인,로그아웃, 사용자조회(로컬-코그니토)
 
-cognito
 
 ## Install
 

@@ -2,7 +2,7 @@ from flask_cognito import cognito_auth_required, current_user, current_cognito_j
 from flask import _request_ctx_stack, current_app, jsonify, request, render_template, redirect
 
 from config import app, awsauth_customer
-
+from config.boto3 import cognito_client
 
 
 @app.route('/auth/signin', methods=['GET'])
