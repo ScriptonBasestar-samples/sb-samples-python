@@ -6,8 +6,11 @@ services:
     image: bitnami/rabbitmq:latest
     ports:
       - 5672:5672
+      - 8080:15672
     environment:
       - RABBITMQ_PASSWORD=my_password
+#    volumes:
+#      advanced.config:/bitnami/rabbitmq/conf/advanced.config
     networks:
       - app-tier
 
