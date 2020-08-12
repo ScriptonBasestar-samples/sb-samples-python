@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+
+  #https://hub.docker.com/r/bitnami/kafka/
+  zookeeper:
+    image: bitnami/zookeeper
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: 'yes'
+    #      ZOO_SERVER_USERS: kafka
+    #      ZOO_SERVER_PASSWORDS: kafka_password
+    networks:
+      - app-tier
+    volumes:
+      - zookeeper-persistence:/bitnami/kafka
+
+  kafka:
+    image: bitnami/kafka
+    environment:
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+      #      KAFKA_CFG_LISTENERS: SASL_SSL://:9092
+      #      KAFKA_CFG_ADVERTISED_LISTENERS: SASL_SSL://:9092
+      #      KAFKA_ZOOKEEPER_USER: kafka
+      #      KAFKA_ZOOKEEPER_PASSWORD: kafka_password
+      #      KAFKA_CLIENT_USER: user
+      #      KAFKA_CLIENT_PASSWORD: password
+      #      KAFKA_CERTIFICATE_PASSWORD: certificatePassword123
+      ALLOW_PLAINTEXT_LISTENER: 'yes'
+    ports:
+    - 9092:9092
+    networks:
+      - app-tier
+    volumes:
+      - kafka-persistence:/bitnami/kafka
+
+networks:
+  app-tier:
+
+volumes:
+  zookeeper-persistence:
+  kafka-persistence:
