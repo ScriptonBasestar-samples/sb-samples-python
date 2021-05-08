@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 #faust = {extras = ["fast", "redis", "rocksdb", "uvloop", "yaml", "eventlet"], version = "~=1.10"}
 faust = {extras = ["fast", "redis", "rocksdb", "uvloop", "yaml"], version = "~=1.10"}
-eventlet = "~=0.25"
+eventlet = "~=0.31"
 
 [requires]
 python_version = "3.7"
